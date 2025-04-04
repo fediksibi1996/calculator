@@ -1,0 +1,73 @@
+body {
+    background-color: white;
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    margin-top: 100px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#calculator {
+    height: 600px;
+    width: 400px;
+    background-color: black;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#displayScreen {
+   display: flex;
+   justify-content: flex-end;
+   align-items: flex-end;
+   background-color: rgb(193, 10, 248);
+   height: 100px;
+   width: 380px;
+   margin-top: 10px;
+   border-radius: 10px;
+   font-size: 75px;
+}
+
+#items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.buttons {
+    display: flex;
+    background-color: turquoise;
+    justify-content: center;
+    align-items: center;
+    height: 87.5px;
+    width: 87.5px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: 40px;
+    color: white;
+    border: none;
+}
+
+.numbers {
+    background-color: rgb(69, 71, 71);
+}
+
+.operators {
+    background-color: rgb(236, 71, 71);
+}
+
+.modifiers {
+    background-color: rgba(169, 169, 169, 0.534);
+}
+
+#equals {
+    background-color: rgb(236, 71, 71);
+}
+
+#decimal { 
+    background-color: rgba(230, 243, 49, 0.363);
+}
