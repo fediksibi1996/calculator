@@ -26,6 +26,26 @@ function divide(firstNumber,secondNumber) {
     sum = firstNumber / secondNumber;
 }
 
+
 function clearTotal() {
     sum === 0;
 }
+
+
+function operate(firstNumber,secondNumber,mathFunction) {
+    if (mathFunction === "add") {
+        add(firstNumber,secondNumber);
+    } else if (mathFunction === "subtract") {
+        subtract(firstNumber,secondNumber);
+    } else if (mathFunction === "multiply") {
+        multiply(firstNumber,secondNumber);
+    } else if (mathFunction === "divide" && secondNumber === 0) {
+        displayElement.textContent = displayNumber;
+        alert("Imagine that you have zero cookies and you split them evenly among friends. How many cookies does each person get? See? It doesn't make sense. ");
+    } else if (mathFunction === "divide") {
+        divide(firstNumber,secondNumber);
+    } else if (mathFunction === "clearTotal") {
+        clearTotal()
+    } else {
+    }
+ }
