@@ -49,3 +49,24 @@ function operate(firstNumber,secondNumber,mathFunction) {
     } else {
     }
  }
+ function concatNumbers() {
+    displayElement = document.getElementById("displayScreen");
+    displayNumber = displayElement.textContent;
+    buttonValue = this.textContent;
+    decimal.disabled = false;
+    decimalCheck
+    if (displayNumber === "0") {
+      displayElement.textContent = buttonValue;
+      currentValue = Number(displayNumber + buttonValue);
+    } else if (clearDisplay === 1 && displayNumber.length < 9) {
+        displayNumber = ""
+        currentValue = 0;
+        clearDisplay = -1;
+        displayElement.textContent = displayNumber + buttonValue;
+        currentValue = Number(displayNumber + buttonValue);
+    } else if (displayNumber.length < 9) { 
+    displayElement.textContent = displayNumber + buttonValue;
+    currentValue = Number(displayNumber + buttonValue);
+    } else {
+    }
+}
