@@ -49,6 +49,9 @@ function operate(firstNumber,secondNumber,mathFunction) {
     } else {
     }
  }
+
+
+
  function concatNumbers() {
     displayElement = document.getElementById("displayScreen");
     displayNumber = displayElement.textContent;
@@ -68,5 +71,163 @@ function operate(firstNumber,secondNumber,mathFunction) {
     displayElement.textContent = displayNumber + buttonValue;
     currentValue = Number(displayNumber + buttonValue);
     } else {
+    }
+}
+
+
+
+const numberButtons = document.querySelectorAll(".numbers");
+
+numberButtons.forEach(button => {
+    button.addEventListener("click", concatNumbers);
+});
+
+function clearDisplayFunction() {
+    if (clearDisplay === 1) {
+        clearDisplay = -1;
+    } else { ""
+   }
+}
+
+const clear = document.querySelector("#clear")
+
+clear.addEventListener("click", () => {
+    displayElement.textContent = 0;
+    firstNumber = "noNumber";
+    secondNumber = "noNumber";
+});
+
+
+
+const equals = document.querySelector("#equals");
+
+equals.addEventListener("click", () => {
+        if( firstNumber === "noNumber" && secondNumber === "noNumber" ) {
+            console.log("No numbers set");
+            firstNumber = currentValue;
+            displayElement.textContent = firstNumber;
+        } else {
+        secondNumber = currentValue;
+        operate(firstNumber, secondNumber, mathFunction);
+        answer = Number(sum.toFixed(7));
+        console.log("Answer after equals is " + answer);
+        displayElement.textContent = answer;
+        firstNumber = answer;
+        secondNumber = "noNumber";
+        mathFunction = "";}
+});
+
+const decimal = document.querySelector("#decimal");
+
+decimal.addEventListener("click", () => {
+    decimalCheck = displayElement.textContent.includes('.');
+    if(decimalCheck == true) {
+        decimal.disabled = true;
+    } else {
+        decimal.disabled = false;
+   }
+})
+
+function decimalCheck() { 
+    decimalCheck = displayElement.textContent.includes('.');
+    if(decimalCheck == true) {
+        decimal.disabled = true;
+    } else {
+        decimal.disabled = false;
+    }
+}
+
+function deleteNumber() {
+   delNumberString = displayElement.textContent;
+   newNumber = delNumberString.slice(0,-1);
+   newDisplay = Number(newNumber);
+   currentValue = newDisplay;
+   displayElement.textContent = newDisplay;
+   if(secondNumber === "noNumber") {
+    firstNumber = newDisplay;
+    answer = firstNumber;
+    sum = firstNumber;
+   }
+}
+
+const delNumber = document.querySelector('#delNumber');
+
+delNumber.addEventListener("click", deleteNumber);
+
+function percentCalc() {
+    currentValue = Number(displayElement.textContent);
+    newNumber = currentValue/100;
+    displayElement.textContent = newNumber;
+    currentValue = newNumber;
+    if(secondNumber === "noNumber") {
+        firstNumber = currentValue;
+        answer = firstNumber;
+        sum = firstNumber;
+    }
+}
+
+const percentage = document.querySelector('#percentage');
+
+percentage.addEventListener("click", percentCalc);
+
+function positiveNegative() { 
+    currentValue = Number(displayElement.textContent);
+    newNumber = currentValue*-1;
+    displayElement.textContent = newNumber;
+    currentValue = newNumber;
+    if(secondNumber === "noNumber") {
+        firstNumber = currentValue;
+        answer = firstNumber;
+        sum = firstNumber;
+    }
+}
+
+const posNeg = document.querySelector('#posNeg');
+
+posNeg.addEventListener("click",positiveNegative);
+
+const buttons = document.querySelectorAll(".buttons")
+
+buttons.forEach((buttons) => { 
+    buttons.addEventListener("mouseenter", () => {
+        buttons.style.opacity = .7;
+    })
+    buttons.addEventListener("mouseleave", () => {
+        buttons.style.opacity = 1;
+    })
+});
+
+const operators = document.querySelectorAll(".operators");
+
+operators.forEach((operators) => { 
+    operators.addEventListener("click", () => {
+        //if(firstNumber != "noNumber") {
+            //secondNumber = currentValue;
+        //}
+        storageCheck();
+        mathFunction = operators.id;
+    });
+});
+
+function storageCheck() {
+    if (firstNumber === "noNumber"  ) {
+        console.log("First option is firing");
+        clearDisplay = 1;
+        firstNumber = currentValue;
+    } else if (firstNumber !== "noNumber") {
+        secondNumber = currentValue;
+        operate(firstNumber,secondNumber,mathFunction)
+        answer = sum;
+        console.log("Second option is firing and answer is " + sum);
+        displayElement.textContent = answer;
+        firstNumber = answer;
+        secondNumber = "noNumber";
+        currentValue = firstNumber
+        mathFunction = "";
+        clearDisplay = 1;
+    } else {
+        console.log("Third option is firing");
+        clearDisplay = 1;
+        secondNumber = currentValue;
     }
 }
